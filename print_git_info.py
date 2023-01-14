@@ -7,7 +7,7 @@ class GitInfo:
 
     def print_git_info(self):
         is_local_change = self.repository.is_dirty()
-        is_last_week = (datetime.datetime.now() - self.repository.head.commit.authored_datetime) < \
+        is_last_week = (datetime.datetime.now().astimezone() - self.repository.head.commit.authored_datetime) < \
         datetime.timedelta(days=7)
         is_rufus = self.repository.head.commit.author.name == "Rufus"
         print("active branch: ", self.repository.active_branch.name)
